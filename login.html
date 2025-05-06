@@ -1,0 +1,64 @@
+<html>
+    <body>
+        <table>
+            <tr>
+                <td>email</td>
+                <td><input type="text" id="t1"></td>
+            </tr>
+            <tr>
+                <td>password</td>
+                <td><input type="password" id="t2"></td>
+            </tr>
+            
+            <tr>
+                
+                <td><input type="button" value="login" onclick="senddata()"></td>
+                <td><input type="button" value="logout" onclick="logout()"></td>
+            </tr>
+            
+            
+        </table>
+        <p id="p1"></p>
+        <script>
+
+           
+            function senddata()
+            {
+               
+                var em = document.getElementById('t1').value;
+            
+                var pass = document.getElementById('t2').value;
+
+                var eml = localStorage.getItem('email');
+                var pwd = localStorage.getItem('password');
+                 //document.getElementById('p1').innerHTML = 'email is :'+ eml + 'password is ' + pwd;
+
+                if( em == eml && pass == pwd)
+                {
+                    window.location = 'home.html';
+                }
+                else if(em !=eml)
+                {
+                    document.getElementById('p1').innerText = 'email is incorrect..'
+                }
+                else if(pass !=pwd)
+                {
+                    document.getElementById('p1').innerText = 'password is incorrect..'
+                }
+                else{
+                    document.getElementById('p1').innerText = 'email and password  both is incorrect..'
+                }
+
+                
+            }
+
+            function logout()
+            {
+                localStorage.clear();
+                document.getElementById('myid').innerText = 'logged out success'
+            }
+
+            
+        </script>
+    </body>
+</html>

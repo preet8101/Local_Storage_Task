@@ -1,0 +1,63 @@
+<html>
+    <body>
+        <table>
+            <tr>
+                <td>name</td>
+                <td><input type="text" id="t1"></td>
+            </tr>
+            
+            <tr>
+                <td>gender</td>
+                <td><input type="text" id="t2"></td>
+            </tr>
+            
+            <tr>
+                <td>email</td>
+                <td><input type="text" id="t3"></td>
+            </tr>
+            
+            <tr>
+                <td>mobile</td>
+                <td><input type="text" id="t4"></td>
+            </tr>
+            
+            <tr>
+                <td>password</td>
+                <td><input type="password" id="t5"></td>
+            </tr>
+            
+            <tr>
+                
+                <td><input type="button" value="submit" onclick="senddata()"></td>
+            </tr>
+            <tr>
+                
+                <td><input type="button" value="logout" onclick="logout()"></td>
+            </tr>
+        </table>
+        <p id="p1"></p>
+        <script>
+            function senddata()
+            {
+                var name = document.getElementById('t1').value;
+                var gen = document.getElementById('t2').value;
+                var em = document.getElementById('t3').value;
+                var mob = document.getElementById('t4').value;
+                var pass = document.getElementById('t5').value;
+
+                document.getElementById('p1').innerText = 'data saved succcess'
+                localStorage.setItem('name',name);
+                localStorage.setItem('gender',gen);
+                localStorage.setItem('email',em);
+                localStorage.setItem('mobile',mob);
+                localStorage.setItem('password',pass);
+            }
+
+            function logout()
+            {
+                localStorage.clear()
+                document.getElementById('p1').innerText = 'u have been logged out '
+            }
+        </script>
+    </body>
+</html>
